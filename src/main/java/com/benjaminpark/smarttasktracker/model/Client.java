@@ -4,6 +4,9 @@ import com.benjaminpark.smarttasktracker.model.enums.Role;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name="clients")
@@ -25,6 +28,10 @@ public class Client {
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.REMOVE)
+    private List<Task> tasks;
+
 
     public Client() {
         this.role = Role.ROLE_USER;
@@ -52,6 +59,10 @@ public class Client {
 
     public String getPassword() {
         return password;
+    }
+
+    public List<Task> getTasks() {
+        return Collections.unmodifiableList(tasks);
     }
 
     public void updatePassword(String oldPassword, String newPassword) {
@@ -90,4 +101,26 @@ public class Client {
 
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+
+        if (!(o instanceof Client)) return false;
+
+        Client client = (Client) o;
+
+        return Objects.equals(clientId, client.clientId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(clientId);
+    }
+
+    @Override
+    public String toString() {
+        return "ClientId: " + this.getClientId()
+                + "\nUsername: " + this.username
+                + "\nCreated At: " + this.createdAt;
+    }
 }
