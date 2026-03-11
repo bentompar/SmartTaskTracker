@@ -4,6 +4,8 @@ import com.benjaminpark.smarttasktracker.model.enums.Status;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.Collections;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -26,12 +28,18 @@ public class Task {
     @Column(nullable=false)
     private Status status;
 
+    @Column
+    private LocalDateTime completedAt;
+
     @Column(nullable=false)
     private LocalDateTime createdAt;
 
     @ManyToOne
     @JoinColumn(name = "ownerId", referencedColumnName = "clientId")
     private Client owner;
+
+    @OneToMany(mappedBy = "task", cascade = CascadeType.REMOVE)
+    private List<TaskShare> taskShares;
 
     public Task() {
         this.status = Status.PENDING;
@@ -48,11 +56,11 @@ public class Task {
     }
 
     public String getTaskId() {
-        return this.taskId;
+        return taskId;
     }
 
     public String getTaskName() {
-        return this.taskName;
+        return taskName;
     }
 
     public void setTaskName(String taskName) {
@@ -60,7 +68,7 @@ public class Task {
     }
 
     public String getTaskDescription() {
-        return this.taskDescription;
+        return taskDescription;
     }
 
     public void setTaskDescription(String taskDescription) {
@@ -68,11 +76,11 @@ public class Task {
     }
 
     public LocalDateTime getCreatedAt() {
-        return this.createdAt;
+        return createdAt;
     }
 
     public LocalDateTime getDueDateTime() {
-        return this.dueDateTime;
+        return dueDateTime;
     }
 
     public void setDueDateTime(LocalDateTime dueDateTime) {
@@ -80,15 +88,24 @@ public class Task {
     }
 
     public Status getStatus() {
-        return this.status;
+        return status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void markAsInProgress() {
+        this.status = Status.IN_PROGRESS;
+    }
+
+    public void markAsCompleted() {
+        this.status = Status.COMPLETED;
+        this.completedAt = LocalDateTime.now();
     }
 
     public Client getOwner() {
-        return this.owner;
+        return owner;
+    }
+
+    public List<TaskShare> getTaskShares() {
+        return Collections.unmodifiableList(this.taskShares);
     }
 
 
