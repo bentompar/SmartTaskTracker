@@ -8,6 +8,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents a task created by a user.
+ * Default status is PENDING upon creation.
+ */
 @Entity
 @Table(name="tasks")
 public class Task {
@@ -94,10 +98,17 @@ public class Task {
         return status;
     }
 
+    /**
+     * Marks task as in progress.
+     */
     public void markAsInProgress() {
         this.status = Status.IN_PROGRESS;
     }
 
+    /**
+     * Marks Task as completed and records completion timestamp.
+     * Both always set together.
+     */
     public void markAsCompleted() {
         this.status = Status.COMPLETED;
         this.completedAt = LocalDateTime.now();

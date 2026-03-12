@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Represents an instance of a task being shared with another user.
+ */
 @Entity
 @Table(name="task_shares")
 public class TaskShare {
@@ -78,10 +81,17 @@ public class TaskShare {
         return createdAt;
     }
 
+    /**
+     * Marks share as in progress.
+     */
     public void markAsInProgress() {
         this.status=Status.IN_PROGRESS;
     }
 
+    /**
+     * Marks share as completed and records completion timestamp.
+     * Both always set together.
+     */
     public void markAsCompleted() {
         this.status=Status.COMPLETED;
         this.completedAt=LocalDateTime.now();

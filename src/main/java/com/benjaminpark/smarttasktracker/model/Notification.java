@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+/**
+ * Represents a notification sent to user when a shared task event occurs.
+ */
 @Entity
 @Table(name="notifications")
 public class Notification {

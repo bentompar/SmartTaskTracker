@@ -8,6 +8,10 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * Represents user in the system
+ * Default role is ROLE_USER, admin role assignment done in database
+ */
 @Entity
 @Table(name="clients")
 public class Client {
@@ -79,6 +83,12 @@ public class Client {
         return Collections.unmodifiableList(notifications);
     }
 
+    /**
+     * Updates client's password. Both password BCrypt hashed before calling method.
+     * @param oldPassword Old password to be changed
+     * @param newPassword The new password
+     * @throws IllegalArgumentException if old password does not match current password
+     */
     public void updatePassword(String oldPassword, String newPassword) {
         if (password.equals(oldPassword)) {
             this.password = newPassword;
