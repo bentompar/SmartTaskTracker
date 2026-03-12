@@ -35,6 +35,9 @@ public class Client {
     @OneToMany(mappedBy = "sharedWith", cascade = CascadeType.REMOVE)
     private List<TaskShare> taskShares;
 
+    @OneToMany(mappedBy = "recipient", cascade = CascadeType.REMOVE)
+    private List<Notification> notifications;
+
 
     public Client() {
         this.role = Role.ROLE_USER;
@@ -70,6 +73,10 @@ public class Client {
 
     public List<TaskShare> getTaskShares() {
         return Collections.unmodifiableList(taskShares);
+    }
+
+    public List<Notification> getNotifications() {
+        return Collections.unmodifiableList(notifications);
     }
 
     public void updatePassword(String oldPassword, String newPassword) {

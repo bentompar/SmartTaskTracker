@@ -41,6 +41,9 @@ public class Task {
     @OneToMany(mappedBy = "task", cascade = CascadeType.REMOVE)
     private List<TaskShare> taskShares;
 
+    @OneToMany(mappedBy = "task")
+    private List<Notification> taskNotifications;
+
     public Task() {
         this.status = Status.PENDING;
         this.createdAt = LocalDateTime.now();
