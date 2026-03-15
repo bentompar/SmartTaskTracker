@@ -36,28 +36,56 @@ public class TaskResponseDTO {
         return taskId;
     }
 
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
+    }
+
     public String getTaskName() {
         return taskName;
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
     }
 
     public String getTaskDescription() {
         return taskDescription;
     }
 
+    public void setTaskDescription(String taskDescription) {
+        this.taskDescription = taskDescription;
+    }
+
     public LocalDateTime getDueDateTime() {
         return dueDateTime;
+    }
+
+    public void setDueDateTime(LocalDateTime dueDateTime) {
+        this.dueDateTime = dueDateTime;
     }
 
     public Status getStatus() {
         return status;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public String getCreatedBy() {
         return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
     }
 
     @Override

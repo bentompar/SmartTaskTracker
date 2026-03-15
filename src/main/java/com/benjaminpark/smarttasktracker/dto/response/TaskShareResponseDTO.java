@@ -40,32 +40,64 @@ public class TaskShareResponseDTO {
         return shareId;
     }
 
+    public void setShareId(String shareId) {
+        this.shareId = shareId;
+    }
+
     public String getTaskId() {
         return taskId;
+    }
+
+    public void setTaskId(String taskId) {
+        this.taskId = taskId;
     }
 
     public String getTaskName() {
         return taskName;
     }
 
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
     public String getOwnerId() {
         return ownerId;
+    }
+
+    public void setOwnerId(String ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getSharedWithId() {
         return sharedWithId;
     }
 
+    public void setSharedWithId(String sharedWithId) {
+        this.sharedWithId = sharedWithId;
+    }
+
     public ShareType getShareType() {
         return shareType;
+    }
+
+    public void setShareType(ShareType shareType) {
+        this.shareType = shareType;
     }
 
     public Status getStatus() {
         return status;
     }
 
+    public void setStatus(Status status) {
+        this.status = status;
+    }
+
     public LocalDateTime getCompletedAt() {
         return completedAt;
+    }
+
+    public void setCompletedAt(LocalDateTime completedAt) {
+        this.completedAt = completedAt;
     }
 
     @Override

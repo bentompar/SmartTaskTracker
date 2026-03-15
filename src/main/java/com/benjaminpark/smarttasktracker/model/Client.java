@@ -55,6 +55,10 @@ public class Client {
         this.createdAt = LocalDateTime.now();
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String getClientId() {
         return clientId;
     }

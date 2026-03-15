@@ -19,8 +19,16 @@ public class LoginResponseDTO {
         return token;
     }
 
+    public void setToken(String token) {
+        this.token = token;
+    }
+
     public Role getRole() {
         return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     @Override

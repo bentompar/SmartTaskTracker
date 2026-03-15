@@ -53,6 +53,10 @@ public class TaskShare {
         this.createdAt=LocalDateTime.now();
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String getShareId() {
         return shareId;
     }
@@ -61,9 +65,13 @@ public class TaskShare {
         return task.getTaskId();
     }
 
+    public Task getTask() {return task;}
+
     public String getSharedWithId() {
         return sharedWith.getClientId();
     }
+
+    public Client getSharedWith() {return sharedWith;}
 
     public ShareType getShareType() {
         return shareType;

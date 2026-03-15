@@ -10,7 +10,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {TaskMapper.class})
 public interface ClientMapper {
     Client registerRequestDTOToClient(RegisterRequestDTO registerRequestDTO);
     ClientResponseDTO clientToClientResponseDTO(Client client);

@@ -52,6 +52,10 @@ public class Notification {
         this.createdAt = LocalDateTime.now();
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String getNotificationId() {
         return notificationId;
     }

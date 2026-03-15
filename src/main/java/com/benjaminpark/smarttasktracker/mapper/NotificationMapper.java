@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {TaskMapper.class, ClientMapper.class})
 public interface NotificationMapper {
     @Mapping(source = "recipient.clientId", target = "recipientId")
     @Mapping(source = "task.taskId", target = "taskId")

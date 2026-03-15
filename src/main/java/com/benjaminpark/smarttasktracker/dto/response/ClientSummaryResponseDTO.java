@@ -22,12 +22,24 @@ public class ClientSummaryResponseDTO {
         return clientId;
     }
 
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
+
     public String getUsername() {
         return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public List<TaskResponseDTO> getTasks() {
         return tasks;
+    }
+
+    public void setTasks(List<TaskResponseDTO> tasks) {
+        this.tasks = tasks;
     }
 
     @Override

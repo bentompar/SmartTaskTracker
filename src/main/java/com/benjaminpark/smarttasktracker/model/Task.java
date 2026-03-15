@@ -62,6 +62,10 @@ public class Task {
         this.owner = builder.owner;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String getTaskId() {
         return taskId;
     }

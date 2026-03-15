@@ -9,7 +9,7 @@ import org.mapstruct.MappingTarget;
 
 import java.util.List;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {TaskMapper.class, ClientMapper.class})
 public interface TaskShareMapper {
     TaskShare taskShareRequestDTOToTaskShare(TaskShareRequestDTO taskShareRequestDTO);
     @Mapping(source = "task.owner.clientId", target = "ownerId")
