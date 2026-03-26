@@ -23,4 +23,10 @@ public class CustomUserDetailsService implements UserDetailsService {
         }
         return new CustomUserDetails(client);
     }
+
+    public UserDetails loadUserByClientId(String clientId) throws UsernameNotFoundException {
+        Client client = clientRepository.findById(clientId)
+                .orElseThrow(() -> new UsernameNotFoundException(clientId));
+        return new CustomUserDetails(client);
+    }
 }
