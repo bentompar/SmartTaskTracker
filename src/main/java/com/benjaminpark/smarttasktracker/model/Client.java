@@ -89,16 +89,11 @@ public class Client {
 
     /**
      * Updates client's password. Both password BCrypt hashed before calling method.
-     * @param oldPassword Old password to be changed
+     * Only be called from ClientServiceImpl after password verification and hashing has been performed.
      * @param newPassword The new password
-     * @throws IllegalArgumentException if old password does not match current password
      */
-    public void updatePassword(String oldPassword, String newPassword) {
-        if (password.equals(oldPassword)) {
-            this.password = newPassword;
-        }  else {
-            throw new IllegalArgumentException("Passwords do not match");
-        }
+    public void updatePassword(String newPassword) {
+        this.password = newPassword;
     }
 
     public Role getRole() {

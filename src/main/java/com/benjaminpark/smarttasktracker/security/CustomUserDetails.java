@@ -35,6 +35,8 @@ public class CustomUserDetails implements UserDetails {
         return clientId;
     }
 
+    public Role getRole() { return role; }
+
     public CustomUserDetails(Client client) {
         this.clientId = client.getClientId();
         this.username = client.getUsername();

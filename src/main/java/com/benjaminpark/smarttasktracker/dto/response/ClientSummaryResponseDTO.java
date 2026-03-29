@@ -8,14 +8,17 @@ public class ClientSummaryResponseDTO {
 
     private String username;
 
-    private List<TaskResponseDTO> tasks;
+    private List<TaskResponseDTO> ownedTasks;
+
+    private List<TaskShareResponseDTO> sharedTasks;
 
     public ClientSummaryResponseDTO() {}
 
-    public ClientSummaryResponseDTO(String clientId, String username, List<TaskResponseDTO> tasks) {
+    public ClientSummaryResponseDTO(String clientId, String username, List<TaskResponseDTO> tasks, List<TaskShareResponseDTO> taskShare) {
         this.clientId = clientId;
         this.username = username;
-        this.tasks = tasks;
+        this.ownedTasks = tasks;
+        this.sharedTasks = taskShare;
     }
 
     public String getClientId() {
@@ -34,18 +37,23 @@ public class ClientSummaryResponseDTO {
         this.username = username;
     }
 
-    public List<TaskResponseDTO> getTasks() {
-        return tasks;
+    public List<TaskResponseDTO> getOwnedTasks() {
+        return ownedTasks;
     }
 
-    public void setTasks(List<TaskResponseDTO> tasks) {
-        this.tasks = tasks;
+    public void setOwnedTasks(List<TaskResponseDTO> ownedTasks) {
+        this.ownedTasks = ownedTasks;
     }
+
+    public List<TaskShareResponseDTO> getSharedTasks() { return sharedTasks; }
+
+    public void setSharedTasks(List<TaskShareResponseDTO> sharedTasks) { this.sharedTasks = sharedTasks; }
 
     @Override
     public String toString() {
         return "ClientSummaryResponseDTO{" + "clientId=" + clientId
                 + ", username=" + username
-                + ", tasks=" + (tasks != null ? tasks.toString() : "[]") + '}';
+                + ", sharedTasks=" + sharedTasks
+                + ", ownedTasks=" + (ownedTasks != null ? ownedTasks.toString() : "[]") + '}';
     }
 }
